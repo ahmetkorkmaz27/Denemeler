@@ -12,8 +12,8 @@ def binance_access_test():
     try:
         # Proxy kullanmak istiyorsan buraya IP ve portu gir
         proxies = {
-            "http": "http://103.180.124.49:8080",
-            "https": "http://103.180.124.49:8080"
+            "http": "http://211.230.49.122:3128",
+            "https": "http://149.51.6.10:5997"
                 }
 
 
@@ -44,6 +44,7 @@ async def read_root(request: Request):
         "timestamp": timestamp,
         "binance_status": binance_status
     })
+
 
 
 
