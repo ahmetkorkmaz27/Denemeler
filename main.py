@@ -10,7 +10,16 @@ templates = Jinja2Templates(directory="templates")
 
 def binance_access_test():
     try:
-        r = requests.get("https://api.binance.com/api/v3/time", timeout=5)
+        # Proxy kullanmak istiyorsan buraya IP ve portu gir
+        proxies = {
+            "http": "http://103.180.124.49:8080",
+            "https": "http://103.180.124.49:8080"
+                }
+
+
+        # Proxy kullanmak istemiyorsan proxies parametresini kaldır
+        r = requests.get("https://api.binance.com/api/v3/time", proxies=proxies, timeout=5)  # , proxies=proxies
+
         if "serverTime" in r.json():
             return "✅ Binance API erişimi açık."
         else:
@@ -35,6 +44,7 @@ async def read_root(request: Request):
         "timestamp": timestamp,
         "binance_status": binance_status
     })
+
 
 
 
