@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><title>Binance Test</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Binance API Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .status { font-size: 1.2em; margin-bottom: 20px; }
+    .log-entry { margin-bottom: 5px; }
+  </style>
+</head>
 <body>
-  <h1>Binance API Test</h1>
-  <p>Zaman: {{ timestamp }}</p>
+  <h1>Binance API Erişim Durumu</h1>
+
+  <div class="status">
+    <strong>Zaman:</strong> {{ timestamp }}<br>
+    <strong>Durum:</strong> {{ binance_status }}
+  </div>
+
+  <h2>Log Kayıtları</h2>
   <ul>
     {% for item in data %}
-      <li>{{ item }}</li>
+      <li class="log-entry">{{ item }}</li>
     {% endfor %}
   </ul>
 </body>
 </html>
+
+
