@@ -7,6 +7,10 @@ from datetime import datetime
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
+@app.get("/")
+def root():
+    return {"message": "Binance API test servisi çalışıyor. /binance-access-test endpoint’ini kullanın."}
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     try:
@@ -21,3 +25,4 @@ async def read_root(request: Request):
         "data": data,
         "timestamp": timestamp
     })
+
